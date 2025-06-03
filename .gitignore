@@ -1,0 +1,14 @@
+telegram_token.py
+**/*.pyc
+__pycache__/
+# Ignore all Python bytecode files
+*.pyo
+# Ignore all Python cache directories
+*.pyd
+# Ignore all Python egg files
+*.egg
+# Ignore all Python distribution files
+*.whl
+# Ignore all Python virtual environment directories
+venv/
+# Ignore all Python distribution archives

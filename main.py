@@ -16,6 +16,15 @@ def load_json(filename):
 
 def main():
     print("Hello from latijn!")
+    # if the certificate.py file exists, import it and run the code
+    try:
+        import telegram_token
+        token = telegram_token.telegram_token()
+        print("Telegram token loaded successfully.")
+    except ImportError:
+        print("Certificate module not found. Exiting.")
+        return
+    
 
     latijn = load_json("latijn.json")
     if latijn is None:

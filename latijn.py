@@ -1,0 +1,229 @@
+
+import random
+ 
+
+qa = {
+#15
+    "olim ":["vroeger", "eens", "ooit"],
+    "maritus ":["echtgenoot"],
+    "scelus,scelera ":["misdaad"],
+    "interea ":["intussen"],
+    "valde ":["zeer", "erg zeer"],
+    "redii ":["redire", "teruggaan"],
+    "redire ":["teruggaan"],
+    "Dido,Didonem ":["Dido"],
+    "mox-bijw ":["weldra", "spoedig"],
+    "verbum ":["woord"],
+    "decepi ":["decipere", "bedriegen"],
+    "decipere ":["bedriegen"],
+    "aurum ":["goud"],
+    "antea-bijw ":["eerder"],
+    "condidi ":["condere", "opbergen stichten", "bergen stichten"],
+    "habere_in_amino ":["van plan zijn"],
+    "socius ":["bondgenoot", "vriend"],
+#14
+    "Aeneas, am acc.(grp.1) ":["aeneas"],
+    "somnus ":["slaap"],
+    "apparere ":["verschijnen"],
+    "hostis, es m ":["vijand"],
+    "habere ":["hebben", "houden"],
+    "arma mv (groep 2) ":["wapens"],
+    "Penate mv (groep 3) ":["penaten", "huisgoden"],
+    "auxilium ":["hulp"],
+     "condere ":["opbergen stichten", "bergen stichten"],
+    "lectus ":["bed"],
+    "surrexi ":["surgere"],
+     "surgere ":["opstaan", "oprijzen"],
+    "ii ":["ire"],
+    "ire ":["gaan"],
+    "via ":["weg", "straat"],
+    "instare + dat ":["achternazitten"],
+    "clamor, ores ":["geschreeuw", "kreet"],
+    "cepi ":["capere"],
+    "turba ":["menigte"],
+    "ara ":["altaar"],
+    "statui ":["statuere"],
+     "statuere ":["besluiten"],
+
+#13
+    "Graecus ":["griek"],
+    "aedificare ":["bouwen"],
+    "vir, viri ":["man"],
+     "in + abl ":["in", "op", "tijdens"],
+    "ora ":["kust"],
+    "pro + abl ":["voor"],
+    "Troja ":["troje"],
+     "a(b) + abl / ab voor klinker of h ":["van", "vanaf"],
+    "navigare ":["varen"],
+    "occultare ":["verbergen"],
+    "prope ":["dichtbij"],
+    "Troianus ":["trojaan"],
+     "de + abl ":["vanaf over"],
+    "murus ":["muur"],
+    "spectare ":["kijken"],
+    "modo ":["slechts"],
+    "navis ":["schip"],
+    "cito ":["snel"],
+    "porta ":["poort"],
+    "aperui ":["aperire"],
+      "e(x) + abl / ex voor klinker of h ":["uit sinds"],
+      "ad + acc ":["naar bij", "tot aan bij"],
+    "cucurri ":["currere"],
+    "currere ":["rennen"],
+    "alii...alii ":["sommigen", "sommige", "andere", "anderen"],
+    "flamma ":["vlam", "vuur"],
+    "delere ":["vernietigen"],
+    "urbs, urbes ":["stad"],
+    "cum + abl ":["met", "samenmet"],
+     "ut + pf ":["zodra"],
+    "credere + dat ":["geloven", "vertrouwen"],
+    "et...et ":["zowel...als"],
+    "donum ":["geschenk"],
+    "dolus ":["list"],
+    "carere ":["missen"],
+    "credidi + dat ":["credere"],
+
+#11
+    # "quarere ": ["zoeken"],
+    # "iacere ": ["liggen"],
+    # "vidi ": ["zag", "zien", "videre"],
+    # "vocare ": ["roepen"],
+    # "casua " : ["oorzaak", "reden"],
+    # "fui ":["esse", "was", "zijn"],
+    # "aspicere/io ":["aanschouwen", "zien"],
+    # "fugi ":["vluchten", "fugeren", "vluchtte"],
+    # "nec ":["en", "ook niet"],
+    # "traxi ":["trahere", "trekken", "trokken"],
+    # "dixi ":["zei", "dicere", "zeggen"],
+    # "armor/ores ":["liefde"],
+    # "vetui ":["vetare", "verbieden", "verboden"],
+    # "vetare ":["verbieden"],
+    # "sepulcrum ":["graf"],
+    # "condere ":["opbergen", "bergen"],
+    
+#10 
+    # "vestigium ":["voetspoor", "spoor"],
+    # "horrere ":["huiveren"],
+    # "invenire ":["vinden"],
+    # "oculus ":["oog"],
+    # "complere ":["vullen"],
+    # "accidi ":["accidere", "gebeurde", "gebeuren"],
+    # "accidere ":["gebeuren"],
+    # "-ne ":["vraag"],
+    # "exspectare ":["afwachten", "wachten op"],
+    # "parentes ":["ouders"],
+    # "parui ":["parere", "gehoorzaamde", "gehoorzamen"],
+    # "reliqui ":["relinquere", "verlaten", "achterlaten", "achterlieten", "verlieten"],
+    # "veni ":["kwamen", "komen", "venire", "kwam"],
+    # "mors, mortem ":["de dood", "dood"],
+    # "culpa ":["schuld"],
+    # "sustuli ":["tollere", "optillen", "opheffen", "ophefde", "optilde"],
+    # "tollere ":["optillen", "opheffen"],
+    # "osculum ":["kus"],
+    # "dedi ":["dare", "gaf", "geven"],
+    # "adii ":["adire", "gaan naar", "ging naar"],
+    # "gladius ":["zwaard"],
+
+#9
+    # "lacrimare ":["huilen"],
+    # "dubitare ":["aarzelen"],
+    # "telum ":["pijl", "werpspies"],
+    # "mittere ":["zenden"],
+    # "cadere ":["vallen", "dood neervallen"],
+    # "frustra ":["tevergeefs"],
+    # "quinque ":["5", "vijf"],
+    # "necare ":["doden"],
+    # "protegere ":["beschermen"],
+    # "desinere ":["ophouden"],
+    # "relinquere ":["verlaten", "achterlaten", "overlaten"],
+    # "iam ":["al", "reeds"],
+    # "non iam ":["niet meer"],
+    # "iam + ontkenning ":["meer", "(niet) meer"],
+    # "paulatim ":["geleidelijk"],
+    # "saxum ":["rots"],
+    # "patria ":["vaderland"],
+    # "etiam ":["zelfs", "ook"],
+    # "lacrima ":["traan"],
+
+#8
+    "sacrum facere/io ":["offeren"],
+    "femina ":["vrouw"],
+    "cur ":["waarom"],
+    "sacrum ":["offer"],
+    "facere/io ":["doen", "maken"],
+    "praeferre ":["verkiezen boven dat", "verkiezen"],
+    "genus, genera ":["afkomst", "geslacht"],
+    "avus ":["grootvader"],
+    "gens, gentes ":["volk"],
+    "coniunx, iuges ":["echtgenoot", "echtgenote"],
+    "septem ":["zeven", "7"],
+    "filius ":["zoon"],
+    "fortuna ":["het lot", "lot"],
+    "numquam ":["nooit"],
+    "nocere ":["schaden"],
+    "tantum ":["slechts"],
+    "duo ":["2", "twee"],
+    "liberi ":["kinderen"],
+    "tamquam ":["als het ware"],
+    "ideo ":["daarom"],
+    "suadere ":["aanraden"],
+    "parere ":["gehoorzamen", "gehoorzamen aan"],
+
+#7
+    "praemium ":["beloning"],
+    "dare ":["geven"],
+    "quid ":["wat"],
+    "optare ":["wensen"],
+    "diu ":["lang", "lange tijd"],
+    "divitiae ":["rijkdom", "schatten"],
+    "sacerdos ":["priester"],
+    "simul ":["tegelijk", "tegelijkertijd"],
+    "vita ":["het leven", "leven"],
+    "finire ":["beeindigen"],
+    "evenire ":["uitkomen"],
+    "colere ":["verzorgen vereren"],
+    "dum ":["terwijl"],
+    "ante ":["voor"],
+    "templum ":["tempel"],
+    "stare ":["staan"],
+    "corpus, ora ":["lichaam"],
+    "subito ":["plotseling"],
+    "arbor, ores ":["boom"],
+    "mutare ":["veranderen"],
+    "tangere ":["aanraken"],
+    "cum ":["wanneer", "toen"],
+    "ventus ":["wind"],
+    "movere ":["bewegen"],
+    "et ":["en"],
+    "vale(te) ":["vaarwel"],
+
+
+
+
+}
+while True:
+
+    def main():
+
+
+        e = random.randint(0, len(qa)-1)
+
+        k = list(qa.keys())
+
+        my_answer = input(k[e]).lower()
+
+        if (my_answer in qa[k[e]]):
+
+            print("Correct!")
+            qa.pop(k[e])
+            
+
+        else:
+
+            print("Incorrect!",qa[k[e]])
+
+    
+
+    if __name__ == "__main__":
+
+        main()

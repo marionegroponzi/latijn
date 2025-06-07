@@ -4,3 +4,15 @@ Bot name: IlmariLatijnBot
 Username: IlmariLatijnBot
 
 TOKEN: in the telegram_token.py file (git-ignored)
+
+
+## Howto run
+
+`uv run main.py`
+
+### Install uv
+
+`curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+
+

@@ -1,6 +1,9 @@
 # Make sure the user is an admin
 PrivilegesCLI -a
 
+# Replace the text Environment.development with Environment.production in the file ../lib/config.dart
+sed -i '' 's/IS_PRODUCTION = False/IS_PRODUCTION = True/g' ./bot_config.py
+
 # Stop daemon
 sudo launchctl stop com.negroponzi.latijn && echo "Stopped latijn daemon"
 sudo launchctl remove com.negroponzi.latijn && echo "Removed latijn daemon"
@@ -50,3 +53,7 @@ fi
 
 echo "=== output.log ===" && cat /opt/latijn/log/output.log
 echo "=== error.log ===" && cat /opt/latijn/log/error.log
+
+
+# Reset the config file
+sed -i '' 's/IS_PRODUCTION = True/IS_PRODUCTION = False/g' ./bot_config.py

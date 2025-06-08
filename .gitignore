@@ -10,4 +10,6 @@ __pycache__/
 *.whl
 # Ignore all Python virtual environment directories
 venv/
-# Ignore all Python distribution archives
+# Ignore temporary databases
+latijn_*.json
+question_*.json

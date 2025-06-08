@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.negroponzi.latijn</string>
+        <key>WorkingDirectory</key>
+        <string>/opt/latijn</string>
+        <key>UserName</key>
+        <string>mario2</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/Users/mario2/.local/bin/uv</string>
+            <string>run</string>
+            <string>/Users/mario2/Developer/Workspace/latijn/main.py</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+        <key>StandardOutPath</key>
+        <string>/opt/latijn/log/output.log</string>
+        <key>StandardErrorPath</key>
+        <string>/opt/latijn/log/error.log</string>
+    </dict>
+</plist>

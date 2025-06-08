@@ -49,7 +49,9 @@ class Latijn:
         current_question = self.latijn_db.load_current_question_for_chat_id(chat_id)
         if current_question is not None:
             correct_answers = current_question.get("answers", [])
-            if update.message.text in correct_answers:
+            user_answer = update.message.text.strip().lower()
+            correct_answers_lower = [a.strip().lower() for a in correct_answers]
+            if user_answer in correct_answers_lower:
                 await context.bot.send_message(
                     chat_id=update.effective_chat.id, text="Correct!"
                 )

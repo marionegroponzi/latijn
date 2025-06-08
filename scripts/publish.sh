@@ -23,7 +23,7 @@ sudo chown root:wheel /Library/LaunchDaemons/com.negroponzi.latijn.plist && echo
 sudo mkdir -p /opt/latijn/log && echo "Created log directory"
 
 # Ensure correct permissions
-sudo chown -R mario2 /opt/latijn && echo "Changed ownership to mario2"
+sudo chown -R $(whoami) /opt/latijn && echo "Changed ownership to $(whoami)"
 
 # Remove old logs
 # if file exists, remove it

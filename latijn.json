@@ -1,4 +1,20 @@
 {
+    "16": {
+        "potui":["posse"],
+        "de + abl":["vanaf", "over"],
+        "adeo":["zo", "zozeer"],
+        "animus":["hart"],
+        "forma":["gestalte", "uiterlijk"],
+        "ducere":["leiden", "voeren"],
+        "gaudere":["blij zijn zich verheugen"],
+        "num leidt_vraagzin":["toch niet"],
+        "sine + abl":["zonder"],
+        "agere":["voeren leiden"],
+        "moenia":["muren", "stadsmuren"],
+        "ostendere":["tonen"],
+        "desiderare":["missen verlangen", "missen verlangen naar"],
+        "quidem":["weliswaar", "echter"]
+    },
     "15": {
         "olim": ["vroeger", "eens", "ooit"],
         "maritus": ["echtgenoot"],
@@ -74,7 +90,7 @@
         "cum + abl": ["met", "samenmet"],
         "ut + pf": ["zodra"],
         "credere + dat": ["geloven", "vertrouwen"],
-        "et...et": ["zowel als"],
+        "et...et": ["zowel...als"],
         "donum": ["geschenk"],
         "dolus": ["list"],
         "carere": ["missen"],
@@ -193,5 +209,43 @@
         "movere": ["bewegen"],
         "et": ["en"],
         "vale(te)": ["vaarwel"]
+    },
+    "6": {
+        "mille onverbuig":["duizend", "1000"],
+        "petere":["zoeken", "vragen"],
+        "autem":["echter"],
+        "claudere":["sluiten"],
+        "recipere/io":["ontvangen", "opnemen"],
+        "tandem":["eindelijk"],
+        "senex,senes":["oude man"],
+        "dicere":["zeggen"],
+        "nusquam":["nergens"],
+        "dormire":["slapen"],
+        "respondere":["antwoorden"],
+        "quis":["wie"]
+    },
+    "5": {
+        "Iupiter":["jupiter"],
+        "Pluto":["pluto"],
+        "regina":["koningin"],
+        "nunc":["nu"],
+        "sedere":["zitten"],
+        "inter + acc":["tussen", "temidden van"],
+        "gaudere":["blij zijn", "zich verheugen"],
+        "dolere":["verdrietig zijn"],
+        "nam":["want"],
+        "iuvare":["helpen"],
+        "reddere":["teruggeven"],
+        "cogitare":["nadenken", "denken"],
+        "nec...nec":["noch noch", "niet en ook niet"],
+        "laedere":["kwetsen"],
+        "cupere/io":["willen", "begeren", "verlangen"],
+        "consilium":["besluit", "plan"],
+        "capere/io":["nemen"],
+        "annus":["jaar"],
+        "dividere":["verdelen"],
+        "sex onverbuig":["zes"],
+        "tum bijw":["toen", "dan"],
+        "curare":["zorgen voor", "zorgen"]
     }
 }

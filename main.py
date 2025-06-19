@@ -44,7 +44,6 @@ class Latijn:
         await self.ask_new_question(update, context)
 
     async def on_question(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        # if there is a file named question_{chat_id}.json, load it
         chat_id = update.effective_chat.id
         current_question = self.latijn_db.load_current_question_for_chat_id(chat_id)
         if current_question is not None:

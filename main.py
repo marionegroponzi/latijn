@@ -45,20 +45,19 @@ class Latijn:
 
     async def on_question(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         chat_id = update.effective_chat.id
-        current_question = self.latijn_db.load_current_question_for_chat_id(chat_id)
-        if current_question is not None:
-            good_answers = [s.strip().lower() for s in current_question.get("answers", [])]
+        question, answers = self.latijn_db.load_current_question_for_chat_id(chat_id)
+        if question is not None:
             user_answer = update.message.text.strip().lower()
 
-            if user_answer in good_answers:
+            if user_answer in answers:
                 await context.bot.send_message(
                     chat_id=chat_id, text="Correct!"
                 )
                 self.latijn_db.update_questions_list_for_chat_id(
-                    chat_id, current_question["question"]
+                    chat_id, question
                 )
             else:
-                first_letter = good_answers[0][0]
+                first_letter = answers[0][0]
                 await context.bot.send_message(
                     chat_id=chat_id,
                     text=f"Incorrect. (the correct answer starts with {first_letter} ;)).",
@@ -84,16 +83,17 @@ class Latijn:
         self, update: Update, context: ContextTypes.DEFAULT_TYPE
     ):
         chat_id = update.effective_chat.id
-        new_question = self.latijn_db.get_new_question_for_chat_id(chat_id)
-        if new_question is None:
+        question, answers, length = self.latijn_db.get_new_question_for_chat_id(chat_id)
+        if length == 0:
             await context.bot.send_message(
-                chat_id=update.effective_chat.id,
+                chat_id=chat_id,
                 text="No questions available. Please restart.",
             )
             return
-        self.latijn_db.save_question_for_chat_id(chat_id, new_question)
+
+        self.latijn_db.save_question_for_chat_id(chat_id, question, answers)
         await context.bot.send_message(
-            chat_id=update.effective_chat.id, text=new_question["question"]
+            chat_id=chat_id, text=question
         )
 
 

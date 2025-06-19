@@ -9,7 +9,7 @@ class latijn_db:
     def __init__(self):
         pass
 
-    def load_json(self, filename):
+    def load_json(self, filename: str):
         try:
             with open(filename, "r") as f:
                 latijn = json.load(f)
@@ -43,47 +43,51 @@ class latijn_db:
             json.dump(latijn, f, indent=4)
         print(f"latijn_{chat_id}.json created successfully.")
 
-    def get_new_question_for_chat_id(self, chat_id):
+    def get_new_question_for_chat_id(self, chat_id: int) -> tuple[str, list, int]:
         """Get a random question for the chat ID."""
         if chat_id is None:
             print("No chat ID provided. Exiting.")
-            return None
+            return None, None, 0
         print(f"Getting question for chat ID: {chat_id}")
         questions = self.load_json(f"latijn_{chat_id}.json")
         if questions is None or len(questions) == 0:
             print(
                 f"No questions available for chat ID: {chat_id}. Please start the bot first."
             )
-            return None
+            return None, None, 0
 
-        keys = list(questions.keys())
-        key_index = random.randint(0, len(keys) - 1)
-        question = keys[key_index]
-        answer = questions[question]
-        print(f"Question: {question}, Answer: {answer}")
-        return {"question": question, "answers": answer}
+        question = random.choice(list(questions.keys()))
+        answers = questions[question]
 
-    def load_current_question_for_chat_id(self, chat_id):
+        print(f"Question: {question}, Answer: {answers}")
+        return question, answers, len(questions)
+
+    def load_current_question_for_chat_id(self, chat_id: int) -> tuple[str, list]:
         """Load the current question for the chat ID."""
         try:
             with open(f"question_{chat_id}.json", "r") as f:
-                question_dict = json.load(f)
-                return question_dict
+                q = json.load(f)
+                answers = [s.strip().lower() for s in q.get("answers", [])]
+                return q["question"].strip().lower(), answers
         except FileNotFoundError:
             print(f"No current question file found for chat ID: {chat_id}.")
-            return None
         except json.JSONDecodeError:
             print(f"Error decoding JSON for chat ID: {chat_id}.")
-            return None
 
-    def save_question_for_chat_id(self, chat_id, question):
+        return None, None
+
+    def save_question_for_chat_id(self, chat_id: int, question: str, answers: list):
         """Save the current question for the chat ID."""
         if chat_id is None or question is None:
             print("Chat ID or question is None. Exiting.")
             return
         try:
+            q = {
+                "question": question,
+                "answers": answers,
+            }
             with open(f"question_{chat_id}.json", "w") as f:
-                json.dump(question, f, indent=4)
+                json.dump(q, f, indent=4)
             print(f"Question saved for chat ID: {chat_id}.")
         except IOError as e:
             print(f"Error saving question for chat ID {chat_id}: {e}")

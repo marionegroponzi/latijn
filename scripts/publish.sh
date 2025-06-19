@@ -57,3 +57,7 @@ echo "=== error.log ===" && cat /opt/latijn/log/error.log
 
 # Reset the config file
 sed -i '' 's/IS_PRODUCTION = True/IS_PRODUCTION = False/g' ./bot_config.py
+
+# Tag the repo with the current UTC date and time
+git tag "deploy-$(date -u +'%Y%m%d-%H%M%S')"
+git push --tags

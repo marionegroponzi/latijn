@@ -21,7 +21,7 @@ class latijn_db:
             return
         return latijn
 
-    def start_for_chat_id(self, chat_id):
+    def start_for_chat_id(self, chat_id: int):
         """Start the bot for a specific chat ID."""
         if chat_id is None:
             print("No chat ID provided. Exiting.")
@@ -32,12 +32,11 @@ class latijn_db:
         if latijn is None:
             return
 
-        # merge the dictionary ignoring the first level
-        d = {}
-        for k in list(latijn.keys()):
-            for k2 in list(latijn[k].keys()):
-                d[k2] = latijn[k][k2]
-        latijn = d
+        # Flatten the dictionary, ignoring the first level
+        flattened = {}
+        for outer in latijn.values():
+            flattened.update(outer)
+        latijn = flattened
 
         # write the merged dictionary as latijn_{chat_id}.json
         with open(f"latijn_{chat_id}.json", "w") as f:

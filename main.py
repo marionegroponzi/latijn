@@ -47,20 +47,21 @@ class Latijn:
         chat_id = update.effective_chat.id
         current_question = self.latijn_db.load_current_question_for_chat_id(chat_id)
         if current_question is not None:
-            correct_answers = current_question.get("answers", [])
+            good_answers = [s.strip().lower() for s in current_question.get("answers", [])]
             user_answer = update.message.text.strip().lower()
-            correct_answers_lower = [a.strip().lower() for a in correct_answers]
-            if user_answer in correct_answers_lower:
+
+            if user_answer in good_answers:
                 await context.bot.send_message(
-                    chat_id=update.effective_chat.id, text="Correct!"
+                    chat_id=chat_id, text="Correct!"
                 )
                 self.latijn_db.update_questions_list_for_chat_id(
                     chat_id, current_question["question"]
                 )
             else:
+                first_letter = good_answers[0][0]
                 await context.bot.send_message(
-                    chat_id=update.effective_chat.id,
-                    text=f"Incorrect. {correct_answers}.",
+                    chat_id=chat_id,
+                    text=f"Incorrect. (the correct answer starts with {first_letter} ;)).",
                 )
             self.latijn_db.remove_question_file_for_chat_id(chat_id)
 

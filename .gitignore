@@ -13,3 +13,4 @@ venv/
 # Ignore temporary databases
 latijn_*.json
 question_*.json
+**/.DS_Store

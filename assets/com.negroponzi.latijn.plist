@@ -12,7 +12,7 @@
         <array>
             <string>/Users/mario2/.local/bin/uv</string>
             <string>run</string>
-            <string>/Users/mario2/Developer/Workspace/latijn/main.py</string>
+            <string>/opt/latijn/main.py</string>
         </array>
         <key>RunAtLoad</key>
         <true/>

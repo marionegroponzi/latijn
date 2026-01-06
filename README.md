@@ -14,6 +14,14 @@ TOKEN: in the telegram_token.py file (git-ignored)
 
 `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
+### Update uv
+
+`uv self update`
+
+### Update project dependencies
+
+`uv lock --upgrade`
+
 ### Show service errors
 
 `log show --predicate 'process == "launchd"' --info --last 1h`

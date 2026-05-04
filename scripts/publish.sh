@@ -1,5 +1,5 @@
 # Make sure the user is an admin
-PrivilegesCLI -a
+# PrivilegesCLI -a
 
 # Replace the text Environment.development with Environment.production in the file ../lib/config.dart
 sed -i '' 's/IS_PRODUCTION = False/IS_PRODUCTION = True/g' ./bot_config.py

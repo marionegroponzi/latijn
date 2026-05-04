@@ -10,6 +10,7 @@ from telegram.ext import (
 
 from bot_config import IS_PRODUCTION
 from latijndb import latijn_db
+from setproctitle import setproctitle
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -98,4 +99,5 @@ class Latijn:
 
 
 if __name__ == "__main__":
+    setproctitle("latijn_bot")
     latijn = Latijn()
